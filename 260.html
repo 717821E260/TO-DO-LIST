@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+</style>
+</head>
+<body>
+    <div id="todolist">
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add</button>
+    <br id="taskList"></br>
+
+    <script>
+        const tasklist = document.getElementById("tasklist");
+        const newTaskItem =  document.getElementById("newTaskItem");
+        const taskCountItem = document.getElementById("taskCount");
+                    if (taskText === "") {
+                alert("Please enter a task.");
+                return;
+            }
+
+            var taskList = document.getElementById("taskList");
+            var newTaskItem = document.createElement("li");
+            newTaskItem.textContent = taskText;
+
+            var removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.addEventListener("click", function() {
+                taskList.removeChild(newTaskItem);
+            });
+            newTaskItem.appendChild(removeButton);
+
+            newTaskItem.addEventListener("click", function() {
+                if (!newTaskItem.classList.contains("done")) {
+                    newTaskItem.classList.add("done");
+                } else {
+                    newTaskItem.classList.remove("done");
+                }
+            });
+         }
+         {
+            if(e.target.tagName==="li"){
+                e.target.classList.toggle("checked");
+            }
+            else if (e.target.tagName === "span"){
+                e.target.parentElement.remove();
+            }
+
+         function removeTask(event){
+            const task = event.target.parentNode;
+            taskList.remove(task);
+            updateTaskCount();
+         }
+        }
+    </script>
+</div>
+</body>
+</html>
